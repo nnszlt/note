@@ -68,3 +68,17 @@
     }
     testResult()
 }
+
+{ 
+    //错误方法  await必须在异步方法中使用
+    async  function doubleAfter2seconds(num) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(2 * num)
+            }, 2000);
+        })
+    }
+
+    let first = await doubleAfter2seconds(30);
+
+}
