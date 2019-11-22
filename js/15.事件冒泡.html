@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            background: yellow;
+        }
+
+        .content {
+            background: red;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <span class="content">
+            content
+        </span>
+    </div>
+</body>
+<!-- <script>
+    // 事件冒泡
+    var box = document.querySelector('.box');
+    var content = document.querySelector('.content');
+    document.addEventListener('click', function (e) {
+        console.log('document');
+    }, false);
+    document.body.addEventListener('click', function (e) {
+        console.log('body');
+    }, false);
+    box.addEventListener('click', function (e) {
+        console.log('box');
+    }, false);
+    content.addEventListener('click', function (e) {
+        console.log('content');
+        event.stopPropagation(); //禁止冒泡
+    }, false);
+</script> -->
+
+<script>
+    // 事件冒泡
+    var box = document.querySelector('.box');
+    var content = document.querySelector('.content');
+    // document.addEventListener('click', function (e) {
+    //     console.log('document');
+    // }, false);
+    // document.body.addEventListener('click', function (e) {
+    //     console.log('body');
+    // }, false);
+    // box.addEventListener('click', function (e) {
+    //     console.log('box');
+    // }, false);
+    // content.addEventListener('click', function (e) {
+    //     console.log('content');
+    //     event.stopPropagation(); //禁止冒泡
+    // }, false);
+    $(document).click(function () {
+        console.log('document');
+    })
+    $("body").click(function () {
+        console.log('body');
+    })
+    $(".content").click(function () {
+        console.log('content');
+        return false;
+    })
+    $(".box").click(function () {
+        console.log('box');
+        return false;
+    })
+</script>
+
+</html>
